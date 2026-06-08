@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #f5f5f7;
+    --primary-text: #1d1d1f;
+    --secondary-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --accent-color: #0071e3;
+    --accent-hover: #0077ed;
+    --button-bg: #f5f5f7;
+    --button-hover: #e8e8ed;
+    --function-bg: #34c759;
+    --function-hover: #30b84b;
+    --equals-bg: #ff9500;
+    --equals-hover: #e68e00;
+    --error-color: #ff3b30;
+    --success-color: #34c759;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--primary-text);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator {
+    background: var(--secondary-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary-text);
+    letter-spacing: -0.5px;
+}
+
+.display {
+    margin-bottom: 30px;
+}
+
+.display-input {
+    width: 100%;
+    padding: 20px;
+    font-size: 36px;
+    font-weight: 500;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    text-align: right;
+    transition: all 0.3s ease;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.display-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background: var(--button-bg);
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-function {
+    background: var(--function-bg);
+    color: white;
+    font-weight: 600;
+}
+
+.btn-function:hover {
+    background: var(--function-hover);
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-equals {
+    background: var(--equals-bg);
+    color: white;
+    font-weight: 600;
+    grid-column: span 2;
+}
+
+.btn-equals:hover {
+    background: var(--equals-hover);
+}
+
+.functions {
+    margin-bottom: 20px;
+}
+
+.functions h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.function-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--primary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-small:hover {
+    background: var(--button-hover);
+    border-color: var(--accent-color);
+}
+
+.result-display {
+    padding: 16px;
+    border-radius: 10px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    text-align: center;
+    word-break: break-all;
+}
+
+.result-display.success {
+    color: var(--success-color);
+    background: rgba(52, 199, 89, 0.1);
+}
+
+.result-display.error {
+    color: var(--error-color);
+    background: rgba(255, 59, 48, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .display-input {
+        padding: 16px;
+        font-size: 28px;
+    }
+
+    .btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .buttons-grid {
+        gap: 10px;
+    }
+
+    .function-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animation for result display */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-display {
+    animation: slideIn 0.3s ease;
+}
